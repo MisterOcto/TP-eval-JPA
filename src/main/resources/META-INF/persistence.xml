@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+  <persistence-unit name="petshop" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <class>PetShop.Product</class>
+    <class>PetShop.PetStore</class>
+    <class>PetShop.Address</class>
+    <class>PetShop.Animal</class>
+    <class>PetShop.Cat</class>
+    <class>PetShop.Fish</class>
+
+    <properties>
+      <!-- Activation de la génération des tables manquantes uniquement -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+      <!-- Paramètres d'accès à la BDD -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/petshop" />
+      <property name="javax.persistence.jdbc.user" value="root" />
+      <property name="javax.persistence.jdbc.password" value="" />
+      <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+    </properties>
+
+  </persistence-unit>
+</persistence>
